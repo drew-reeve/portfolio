@@ -21,7 +21,7 @@
 
         * {
             margin: 0;
-            padding: 0;
+            padding: 5px;
             box-sizing: border-box;
         }
 
@@ -57,8 +57,22 @@
             margin-bottom: 40px;
             width: 100%;
         }
+        
+        h3 {
+            color: var(--baby-blue);
+            font-size: clamp(20px, 4vw, 24px);
+            margin-bottom: 20px;
+        }
 
-        h2::after {
+        h4 {
+            display: flex;
+            align-items: center;
+            font-size: clamp(26px, 5vw, 32px);
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        h4::after {
             content: '';
             display: block;
             height: 1px;
@@ -81,6 +95,14 @@
         
         .main-content {
             padding: 0 25px;
+        }
+
+       .divider-medium-white {
+            width: 50%;
+            border: none;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 2rem auto; /* Vertical margin and horizontal centering */
         }
         
         /* --- Header / Navigation --- */
@@ -148,7 +170,7 @@
         .hero-content {
              max-width: 1000px;
              margin: 0 auto;
-             padding: 0 25px;
+             padding: 0 10px;
         }
 
         #hero h1 {
@@ -213,14 +235,14 @@
         
         /* --- About Section --- */
         #about p {
-            margin-bottom: 15px;
+            margin-bottom: 1px;
         }
 
         /* --- Portfolio Section --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
 
         .project-card {
@@ -288,6 +310,50 @@
             text-shadow: none;
         }
 
+        /* --- Contact Buttons Style --- */
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 16px;
+            text-decoration: none; /* Removes underline from link */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button i {
+            margin-right: 10px; /* Adds space between icon and text */
+            font-size: 20px;
+        }
+
+        /* LinkedIn Button Style */
+        .linkedin {
+            background-color: #0077B5; /* LinkedIn's brand color */
+        }
+
+        .linkedin:hover {
+            background-color: #005582;
+        }
+
+        /* Email Button Style */
+        .email {
+            background-color: #D44638; /* A common color for email/Google */
+        }
+
+        .email:hover {
+            background-color: #b3382c;
+        }
+
+        /* Instagram Button Style */
+        .instagram {
+            background-color: #E1306C; /* Instagram's brand color */
+        }   
+
+
+
         /* --- Footer --- */
         footer {
             text-align: center;
@@ -308,6 +374,29 @@
             transform: translateY(0);
         }
 
+        /* --- Grid Layout for Text and Image --- */
+        .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 300px; /* Creates two columns: one flexible, one fixed-width */
+        gap: 20px;
+        align-items: center; /* Vertically centers the grid items */
+        }
+
+        .text-content {
+        /* This item will automatically go into the first column */
+        }
+
+        .image-container {
+        /* This item will automatically go into the second column */
+        }
+
+        .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 90%;
+        border-color: #0B192F;
+        outline-width: 2px;
+        }
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .main-header {
@@ -325,9 +414,11 @@
             .mountains {
                 height: 15vh;
             }
+            
         }
         
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -349,13 +440,21 @@
     <main class="main-content">
         <section id="hero">
             <div class="hero-content">
+                <div class="grid-container">
+                <div class="text-content">
                 <p style="color: var(--baby-blue); font-size: 16px; margin-bottom: 30px;">Hi, my name is</p>
                 <h1>Andrew Reeve.</h1>
                 <h2 class="subtitle">I build things for the web.</h2>
                 <p>
                     I'm a <strong>software engineer</strong> and <strong>data scientist</strong> specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on creating, learning, and developing new projects to showcase my tailored skillset.
                 </p>
+             </div>
+                <div class="image-container">
+                    <img src="images/andrewreeveice.jpg" alt="Andrew Reeve on Ice">
+                </div>
+                </div>
             </div>
+                
             <div class="mountains">
                 <div class="mountain mountain2"></div>
                 <div class="mountain mountain1"></div>
@@ -363,61 +462,95 @@
         </section>
 
         <section id="about" class="fade-in">
-            <h2>About Me</h2>
+            <h4>About Me</h4>
             <div>
-                <p>Hello!  I’m Drew - a software developer and data scientist currently based in Northern Utah who loves bringing ideas to life in the digital world. My journey into web development and data science started back in college when I learned regression analysis techniques as an Economics student — turns out I have a knack for business development and data. I love to solve complex problems and answer difficult questions with data-derived answers that are easily digestible! </p>                <p>Today, I've had the privilege of working on a variety of projects, from small business websites to large-scale web applications. My main focus is on crafting clean, efficient, and user-friendly products.</p>
+                <p>Hello!  I’m Drew - a software developer and data scientist currently based in Northern Utah who loves bringing ideas to life in the digital world. My journey into web development and data science started back in college when I learned regression analysis techniques as an Economics student — turns out I have a knack for business development, data, and statistical analysis. I love to solve complex problems and answer difficult questions with data-derived solutions that are easily digestible! </p>                
+                <p>I've had the privilege of working on a variety of projects, from small business websites to large-scale web applications. My main focus is on crafting clean, efficient, and user-friendly products.</p>
                 <p>Here are a few technologies I've been working with recently:</p>
-                <ul style="display: grid; grid-template-columns: repeat(2, minmax(140px, 200px)); gap: 10px; list-style-position: inside; margin-top: 20px; list-style-type: '❄️ '; padding-left: 20px;">
-                    <li>HTML, CSS, and JavaScript</li>
-                    <li>Flask Web Development</li>
-                    <li>Node.js</li>
+                <ul style="display: grid; grid-template-columns: repeat(4, minmax(140px, 200px)); gap: 10px; list-style-position: inside; margin-top: 15px; list-style-type: '❄️ '; padding-left: 20px;">
+                    <li>Data Visualization</li>
+                    <li>HTML, CSS, & JavaScript</li>
+                    <li>Fullstack Web Development</li>
+                    <li>Generative AI & Machine Learning</li>
                     <li>Python & Django</li>
                     <li>Business Development</li>
                     <li>SQL Database Managament</li>
+                    <li>Tableau & Power BI</li>
                 </ul>
+                <p>Feel free to explore my project portfolio below to see what current and past projects of mine.</p>
             </div>
         </section>
-
         <section id="portfolio" class="fade-in">
-            <h2>My Portfolio</h2>
+            <h4>My Portfolio</h4>
             <div class="portfolio-grid">
                 <div class="project-card fade-in">
                     <h3>Business Development: Rhythm Racer</h3>
-                    <img src="/images/rhythmracer.jpg" alt="Rhythm Racer Game" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
-                    <p>Building a professional business plan for a UAT student developed game - 'Rhythm Racer'. This is a website (a so-called 'Teachback Journal') I developed to chronicle the journey.</p>
+                    <img src="images/rhythmracer.jpg" alt="Rhythm Racer Game" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
+                    <p>Building a professional business plan for a UAT student developed game - "Rhythm Racer". This is a website (a so-called 'Teachback Journal') I developed to chronicle the journey.</p>
                     <div class="project-links">
                         <a href="/MS545">Live Demo</a>
                         <a href="/MS545">Source Code</a>
                     </div>
                 </div>
+                      <div class="project-card fade-in">
+                    <h3>Tableau Dashboard: Utah Department of Workforce Services</h3>
+                    <img src="images/dwsdashboard.jpg" alt="Rhythm Racer Game" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
+                    <p>A Tableau dashboard project I managed for the Utah Department of Workforce Services, focusing on data visualization and analysis to provide insights into workforce trends and statistics.</p>
+                    <div class="project-links">
+                        <a href="https://jobs.utah.gov/wi/insights/county/cache.html">Live Dashboard</a>
+                    </div>
+                </div>
                 <div class="project-card fade-in">
-                    <h3>Database Development</h3>
-                    <p>This project focused on creating a highly responsive and accessible user interface using modern front-end frameworks. The winter-themed design was a fun challenge!</p>
+                    <h3>Fullstack Development: Databases and Flask</h3>
+                    <img src="images/databasedev.jpg" alt="Fullstake Development using Flask" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
+                    <p>This project focused on creating a highly responsive and accessible user database using modern fullstack development strategies. The winter-themed AI generated e-book store design was a fun challenge!</p>
                     <div class="project-links">
                         <a href="#">Live Demo</a>
                         <a href="#">Source Code</a>
                     </div>
                 </div>
-                <div class="project-card fade-in">
-                    <h3>Web Application</h3>
-                    <p>A back-end focused project involving REST API design and database management to support a complex application. Performance and security were top priorities.</p>
-                    <div class="project-links">
-                        <a href="#">Source Code</a>
-                    </div>
-                </div>
                 </div>
         </section>
 
-        <section id="contact" class="fade-in">
-            <h2>Get In Touch</h2>
-            <p>I'm currently open to new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll do my best to get back to you!</p>
-            <a href="mailto:example@email.com" class="contact-button">Say Hello</a>
-        </section>
+        <section id="portfolio" class="fade-in">
+            <h4>Get In Touch</h4>
+            <p>I'm actively seeking new employment and am open to excellent career advancement opportunities. I'm eager to bring my skills and passion for data to a forward-thinking organization where I can contribute to meaningful projects and continue to grow professionally. I'm excited about the possibilities ahead and look forward to connecting with new prospects.</p>
+            <p></p> 
+            <p>Feel free to reach out to me! My inbox is always open - whether you have a question, want to collaborate, have an awesome opportunity to explore with me or simply just want to say hi, I'll get back to you!</p>
+            <section id="contact" class="fade-in" style="text-align: center; margin-top: 5px;">
+            <h3>drew.reeve@gmail.com</h3>
+            <h3>https://www.linkedin.com/in/drew-reeve</h3>
+            <p> </p>
+
+                <a href="https://www.linkedin.com/in/drew-reeve" target="_blank" rel="noopener noreferrer">
+                    <button class="contact-button linkedin">
+                        <i class="fa-brands fa-linkedin"></i>
+                        LinkedIn
+                    </button>
+                </a>
+                <a href="mailto:drew.reeve@gmail.com"  target="_blank" rel="noopener noreferrer">
+                    <button class="contact-button email">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Me
+                    </button>
+                </a>
+                <a href="https://www.instagram.com/reeve.drew" target="_blank" rel="noopener noreferrer">
+                    <button class="contact-button instagram">
+                        <i class="fa-brands fa-instagram"></i>                          
+                        <span>Instagram</span>
+                    </button>
+                </a>
+                <div class="mountains">
+                <div class="mountain mountain2"></div>
+                <div class="mountain mountain1"></div>
+            </div>
+            </section>
+           </section>
 
     </main>
 
     <footer>
-        <p>Designed & Built by Andrew Reeve & AI Assistant &copy; 2025</p>
+        <p>Designed & Built by Andrew Reeve - All Rights Reserved  &copy; 2025</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
