@@ -1,654 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew Reeve | Portfolio</title>
-    <style>
-        /* --- Google Font Import --- */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drew Reeve · Economist, data scientist &amp; river guide</title>
+<meta name="description" content="Drew Reeve is an economist and data scientist in Lolo, Montana, working on water, resources and development in the Andes and the American West, with field seasons on rivers and trails.">
+<meta name="author" content="Andrew (Drew) Reeve">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Drew Reeve · Economist, data scientist &amp; river guide">
+<meta property="og:description" content="Drew Reeve is an economist and data scientist in Lolo, Montana, working on water, resources and development in the Andes and the American West, with field seasons on rivers and trails.">
+<meta property="og:image" content="https://drew-reeve.github.io/portfolio/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2b3c">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preload" href="fonts/zilla-700.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/public-sans.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="css/style.css">
 
-        /* --- CSS Reset & Base Styles --- */
-        :root {
-            --dark-blue: #0B192F;
-            --mid-blue: #172a45;
-            --light-slate: #ccd6f6;
-            --slate: #8892b0;
-            --baby-blue: #A8D0E6;
-            --white: #e6f1ff;
-            --font-main: 'Montserrat', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 5px;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--dark-blue);
-            color: var(--slate);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* --- General Styling --- */
-        section {
-            padding: 100px 0;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        h1, h2, h3 {
-            color: var(--light-slate);
-            font-weight: 600;
-        }
-
-        h2 {
-            display: flex;
-            align-items: center;
-            font-size: clamp(26px, 5vw, 32px);
-            margin-bottom: 40px;
-            width: 100%;
-        }
-        
-        h3 {
-            color: var(--baby-blue);
-            font-size: clamp(20px, 4vw, 24px);
-            margin-bottom: 20px;
-        }
-
-        h4 {
-            display: flex;
-            align-items: center;
-            font-size: clamp(26px, 5vw, 32px);
-            margin-bottom: 40px;
-            width: 100%;
-        }
-
-        h4::after {
-            content: '';
-            display: block;
-            height: 1px;
-            width: 300px;
-            background-color: var(--mid-blue);
-            margin-left: 20px;
-        }
-
-        a {
-            color: var(--baby-blue);
-            text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-
-        a:hover {
-            color: var(--baby-blue);
-            filter: brightness(1.2);
-            text-shadow: 0 0 5px var(--baby-blue);
-        }
-        
-        .main-content {
-            padding: 0 25px;
-        }
-
-       .divider-medium-white {
-            width: 50%;
-            border: none;
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.3);
-            margin: 2rem auto; /* Vertical margin and horizontal centering */
-        }
-        
-        /* --- Header / Navigation --- */
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            height: 100px;
-            position: fixed;
-            width: 100%;
-            z-index: 10;
-            background-color: rgba(11, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            transition: all 0.25s ease-in-out;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--baby-blue);
-        }
-        
-        .main-nav ol {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .main-nav ol li {
-            font-size: 14px;
-        }
-
-        .main-nav ol li a {
-            padding: 10px;
-        }
-
-        .nav-button {
-            border: 1px solid var(--baby-blue);
-            color: var(--baby-blue);
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-weight: 400;
-        }
-
-        .nav-button:hover {
-            background-color: rgba(168, 208, 230, 0.1);
-            filter: none;
-            text-shadow: none;
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            padding: 0;
-            max-width: 100%;
-        }
-        
-        .hero-content {
-             max-width: 1000px;
-             margin: 0 auto;
-             padding: 0 10px;
-        }
-
-        #hero h1 {
-            font-size: clamp(40px, 8vw, 80px);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        #hero .subtitle {
-            font-size: clamp(40px, 8vw, 70px);
-            color: var(--slate);
-            line-height: 0.9;
-        }
-
-        #hero p {
-            max-width: 540px;
-            margin-top: 30px;
-            font-size: 18px;
-        }
-        
-        /* --- Particles.js Background --- */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        /* --- CSS Mountain Silhouette --- */
-        .mountains {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 25vh; /* Adjust height as needed */
-            z-index: -1;
-        }
-
-        .mountain {
-            position: absolute;
-            bottom: -1px; /* Overlap with bottom to avoid gaps */
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: bottom center;
-            background-size: cover;
-        }
-
-        .mountain1 {
-            background-color: #172a45;
-            clip-path: polygon(0% 100%, 100% 100%, 100% 55%, 90% 45%, 80% 50%, 70% 35%, 60% 50%, 50% 30%, 40% 45%, 30% 60%, 20% 50%, 10% 65%, 0% 50%);
-            z-index: 3;
-        }
-
-        .mountain2 {
-            background-color: #112239;
-            clip-path: polygon(0% 100%, 100% 100%, 100% 65%, 95% 55%, 85% 65%, 75% 50%, 65% 65%, 55% 55%, 45% 60%, 35% 70%, 25% 60%, 15% 75%, 5% 60%, 0% 70%);
-            z-index: 2;
-        }
-        
-        /* --- About Section --- */
-        #about p {
-            margin-bottom: 1px;
-        }
-
-        /* --- Portfolio Section --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background-color: var(--mid-blue);
-            border-radius: 4px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px -15px rgba(168, 208, 230, 0.3);
-        }
-        
-        .project-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        
-        .project-card p {
-            font-size: 16px;
-        }
-
-        .project-links {
-            margin-top: 20px;
-        }
-
-        .project-links a {
-            margin-right: 15px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* --- Contact Section --- */
-        #contact {
-            text-align: center;
-        }
-        
-        #contact h2 {
-            justify-content: center;
-        }
-        
-        #contact h2::after {
-            display: none;
-        }
-
-        #contact p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .contact-button {
-            display: inline-block;
-            border: 1px solid var(--baby-blue);
-            color: var(--baby-blue);
-            padding: 15px 30px;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .contact-button:hover {
-            background-color: rgba(168, 208, 230, 0.1);
-            filter: none;
-            text-shadow: none;
-        }
-
-        /* --- Contact Buttons Style --- */
-        .contact-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 20px;
-            font-size: 16px;
-            text-decoration: none; /* Removes underline from link */
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-button i {
-            margin-right: 10px; /* Adds space between icon and text */
-            font-size: 20px;
-        }
-
-        /* LinkedIn Button Style */
-        .linkedin {
-            background-color: #0077B5; /* LinkedIn's brand color */
-        }
-
-        .linkedin:hover {
-            background-color: #005582;
-        }
-
-        /* Email Button Style */
-        .email {
-            background-color: #D44638; /* A common color for email/Google */
-        }
-
-        .email:hover {
-            background-color: #b3382c;
-        }
-
-        /* Instagram Button Style */
-        .instagram {
-            background-color: #E1306C; /* Instagram's brand color */
-        }   
-
-
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: var(--slate);
-        }
-        
-        /* --- Animations --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Grid Layout for Text and Image --- */
-        .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 300px; /* Creates two columns: one flexible, one fixed-width */
-        gap: 20px;
-        align-items: center; /* Vertically centers the grid items */
-        }
-
-        .text-content {
-        /* This item will automatically go into the first column */
-        }
-
-        .image-container {
-        /* This item will automatically go into the second column */
-        }
-
-        .image-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 90%;
-        border-color: #0B192F;
-        outline-width: 2px;
-        }
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .main-header {
-                padding: 0 25px;
-            }
-            
-            .main-nav {
-                display: none; /* Simple hiding for this example. A burger menu would be the next step. */
-            }
-
-            h2::after {
-                width: 100px;
-            }
-
-            .mountains {
-                height: 15vh;
-            }
-            
-        }
-        
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="m-mountain" viewBox="0 0 44 36"><path d="M2.5 31.5 L13.2 13.8 Q15 11.2 16.9 13.9 L21.2 20.6 L26.4 11.6 Q28.3 8.7 30.1 11.8 L41.5 31.2"/><path d="M9.8 19.6 l2.9 1.9 2.2-2.4 2.3 2.1"/><path d="M23.6 16.3 l2.6 1.6 2.4-2.1 2.6 2"/></symbol>
+  <symbol id="m-river" viewBox="0 0 44 36"><path d="M2.6 13.2 C9.4 6.8 14.6 18.9 22.1 12.6 S34.8 6.1 41.4 12.9"/><path d="M2.4 23.1 C9.9 16.4 14.1 29.2 22.3 22.4 S34.2 16.7 41.6 23.4"/></symbol>
+  <symbol id="m-drop" viewBox="0 0 44 36"><path d="M22 3.4 C17.6 11.2 13.1 16.8 13.4 23.2 C13.7 29 17.8 32.6 22.2 32.5 C26.9 32.4 30.6 28.7 30.5 23 C30.4 16.9 26.3 11.4 22 3.4 Z"/><path d="M17.6 24.1 C18 27 19.7 28.6 22 29"/></symbol>
+  <symbol id="m-leaf" viewBox="0 0 44 36"><path d="M7.6 31.2 C7.1 16.4 18.6 5.2 36.8 4.6 C37.3 21.4 25.4 31.9 7.6 31.2 Z"/><path d="M7.9 31 C14.2 23.8 21.1 17.4 29.7 11.6"/></symbol>
+  <symbol id="m-glacier" viewBox="0 0 44 36"><path d="M2.6 28.4 L15.3 7.6 Q17 5.2 18.8 7.7 L30.6 24.9 L35.1 19.8 L41.4 28.6"/><path d="M11.6 13.9 l3.4 3 2.6-2.5 3.6 3.1"/><path d="M14.8 32.6 c0.4 -1.8 1.4 -2.6 2.1 -2.6 M24.4 33 c0.3 -1.5 1.1 -2.4 1.9 -2.5"/></symbol>
+  <symbol id="m-pine" viewBox="0 0 44 36"><path d="M22.2 2.8 L14.6 15.1 L19.1 14.9 L12.3 25.8 L32 25.6 L25.1 14.8 L29.8 15 Z"/><path d="M22.1 25.8 L22.3 33.4"/></symbol>
+  <symbol id="m-sun" viewBox="0 0 44 36"><circle cx="22" cy="18" r="6.4"/><path d="M22 3.6 V7.4 M22 28.8 V32.4 M7.8 18 H11.4 M32.7 18 H36.3 M11.9 7.9 L14.4 10.5 M29.7 25.6 L32.2 28.1 M32.1 7.9 L29.6 10.4 M14.3 25.6 L11.8 28.2"/></symbol>
+  <symbol id="m-paddle" viewBox="0 0 44 36"><path d="M6.4 31.6 L28.2 9.6"/><path d="M27.1 10.9 C27.6 6.3 32.4 2.6 37.8 3.4 C39.1 8.7 35.6 13.6 30.9 14.6 Z"/><path d="M4.1 29.4 L8.7 33.9"/></symbol>
+  <symbol id="m-scribble" viewBox="0 0 120 12"><path d="M2 7.2 C12 2.4 18 11.1 29.5 6.3 S47 2.1 58.4 6.8 S78.2 10.9 89.7 5.9 S108 3.1 118 6.6"/></symbol>
+</svg>
 
-    <div id="particles-js"></div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-mountain"/></svg><span><b>Drew Reeve</b><small>Economist · Data scientist · Guide</small></span></a>
+    <div class="head-tools">
+      <nav class="nav" id="nav" aria-label="Main"><a href="index.html#research">Research</a><a href="portfolio.html">Work</a><a href="index.html#field">Field</a><a href="index.html#notes">Photos</a><a href="cv.html">CV</a><a href="index.html#contact" class="pill">Get in touch</a></nav>
+      <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="hero" aria-label="Introduction">
+  <img src="img/p/pano-white-cliffs-dawn-1200.webp" srcset="img/p/pano-white-cliffs-dawn-1200.webp 1200w, img/p/pano-white-cliffs-dawn-2400.webp 2400w" sizes="100vw" width="2400" height="923" alt="White sandstone cliffs mirrored in the still Upper Missouri at dawn" fetchpriority="high">
+  <div class="wrap">
+    <p class="label kicker">Economist <b>·</b> Data scientist <b>·</b> River &amp; trail guide</p>
+    <h1>Drew Reeve</h1>
+    <p class="lede">I study how communities hold on to the value of their water, land and labor, and I bring a data scientist's toolkit and a field guide's habits to the question.</p>
+    <div class="btn-row">
+      <a class="btn ember" href="#research">See the research <span class="arrow">→</span></a>
+      <a class="btn ghost" href="docs/Reeve_CV_2026.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download CV</a>
+    </div>
+    <p class="coords mono"><span>Lolo, Montana</span><span>46.75° N, 114.08° W</span><span>English · Español</span></p>
+  </div>
+  <span class="photo-credit">White Cliffs, Upper Missouri River · Sept 2026</span>
+</section>
 
-    <header class="main-header">
-        <div class="logo">
-            <a href="#hero">AR</a>
+<section class="now" aria-label="Right now">
+  <div class="wrap">
+    <ul>
+      <li><span class="label">Now</span><p>Settling into the Missoula area after a season on the river, reading for the next research project, and training for winter in the Bitterroots.</p></li>
+      <li><span class="label">Open to</span><p>Research collaborations, research-assistant and data roles, and conversations about graduate study in resource and development economics.</p></li>
+      <li><span class="label">Latest</span><p><a href="work/lolo-trail.html">2026 Lolo Trail Condition Assessment</a>, a field survey of 22 trail segments for the Lewis &amp; Clark Trail Alliance.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <figure class="portrait reveal">
+      <img src="img/p/drew-portrait-river-800.webp" srcset="img/p/drew-portrait-river-800.webp 800w, img/p/drew-portrait-river-1600.webp 1600w" sizes="(max-width: 800px) 90vw, 40vw" width="1600" height="2000" alt="Drew Reeve in orange glasses and a sun hoodie, looking out over the river" loading="lazy" decoding="async">
+      <figcaption class="mono">On the Upper Missouri, July 2026</figcaption>
+    </figure>
+    <div class="reveal">
+      <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-sun"/></svg><h2>About</h2></div>
+      <div class="about-copy">
+        <p class="big">An economist by training, a data scientist by trade, and lately a guide with a camp kitchen.</p>
+        <p>I studied economics, political science and international studies at the University of Utah, then worked as a regional labor economist for the Utah Department of Workforce Services and spent five years as a research analyst and data scientist at ELITechGroup, designing validation studies and turning lab and market data into decisions. I hold a master's in International Affairs and Global Enterprise and, as of 2026, a second master's in technology innovation with an emphasis in database architecture and software engineering.</p>
+        <p>The thread through all of it is a question I first ran into on university field programs in Ecuador and Peru: <em>when a resource leaves a place, who keeps the value?</em> I want to answer it with careful data and with results that the people affected can actually use.</p>
+        <p>In 2026 I guided and cooked on the Upper Missouri, the Main Salmon and the Alberton Gorge, and helped assess the Lolo Trail. This winter I'm in the mountains around Missoula with a splitboard and an avalanche kit.</p>
+        <dl class="facts">
+          <dt>Studied</dt><dd>B.S. Economics · B.A. Political Science · B.A. International Studies · M.S. International Affairs &amp; Global Enterprise (University of Utah) · M.S. Technology Innovation, emphasis in Database Architecture &amp; Software Engineering (University of Advancing Technology)</dd>
+          <dt>Works in</dt><dd>Stata, R, Python, SQL · Tableau, Power BI · HTML/CSS/JS, Flask · onX field GPS</dd>
+          <dt>Speaks</dt><dd>English, Spanish (fluent), Quechua (basic)</dd>
+          <dt>Also</dt><dd>12+ years in commercial kitchens, now mostly over a camp stove</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats reveal" aria-label="By the numbers">
+      <div class="stat"><b>5 yrs</b><span>research analyst &amp; data scientist, ELITechGroup</span></div>
+      <div class="stat"><b>124</b><span>blood-smear slides in the CellaVision validation study</span></div>
+      <div class="stat"><b>~115</b><span>field GPS waypoints logged on the Lolo Trail assessment</span></div>
+      <div class="stat"><b>3</b><span>university field programs: Ecuador, Peru, Costa Rica</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section band topo-bg" id="research">
+  <div class="wrap">
+    <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-drop"/></svg><h2>Research interests</h2></div>
+    <p class="section-intro">Development and resource economics, mostly in the Andes and the American West, with water at the center. These are the questions I keep coming back to.</p>
+    <div class="questions">
+      <article class="question reveal">
+        <svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-drop"/></svg>
+        <h3>Clean water as a way out of poverty</h3>
+        <p>How access to safe drinking water, and who controls it, shapes whether poor communities can break the poverty cycle.</p>
+        <span class="ties">Builds on: two papers on water access and water rights</span>
+      </article>
+      <article class="question reveal">
+        <svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-leaf"/></svg>
+        <h3>Who keeps the value of extraction</h3>
+        <p>Coffee, cocoa, wine and copper leave Latin America every day. I want to measure how much of that value stays with host communities, and which policies help them keep more of it.</p>
+        <span class="ties">Builds on: field programs in Ecuador, Peru and Costa Rica</span>
+      </article>
+      <article class="question reveal">
+        <svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-glacier"/></svg>
+        <h3>Glaciers, snowpack and volatile water</h3>
+        <p>As Andean glaciers and western snowpack shrink, water supply gets less predictable. I'm interested in the economic effects on the farms, towns and river economies downstream.</p>
+        <span class="ties">Builds on: a season of reading rivers for a living</span>
+      </article>
+      <article class="question reveal">
+        <svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-mountain"/></svg>
+        <h3>Public lands, access and recreation economies</h3>
+        <p>Hydropower in Patagonia, tourism and export crops in the Andes, and here at home, how checkerboard ownership and maintenance backlogs shape who gets to use public land.</p>
+        <span class="ties">Builds on: the 2026 Lolo Trail assessment</span>
+      </article>
+    </div>
+    <div class="field-programs">
+      <span class="label">University field programs</span>
+      <ul>
+        <li>Ecuador<span>2010</span></li>
+        <li>Peru<span>2013</span></li>
+        <li>Costa Rica<span>2014</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-pine"/></svg><h2>Selected research</h2></div>
+        <p class="section-intro">Field reports, a published validation study and policy papers. Each one has a short case study and the full document.</p>
+      </div>
+      <a class="btn" href="portfolio.html">All work <span class="arrow">→</span></a>
+    </div>
+    <div class="cases">
+      <a class="case feature reveal" href="work/lolo-trail.html">
+        <div class="thumb"><img src="img/p/lolo-lake-overlook-800.webp" srcset="img/p/lolo-lake-overlook-800.webp 800w, img/p/lolo-lake-overlook-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="902" alt="An alpine lake in a forested basin seen from a rocky ridge" loading="lazy" decoding="async"><span class="chip">Field report · 2026</span></div>
+        <div class="body">
+          <span class="label">Lewis &amp; Clark Trail Alliance · Lolo Reconnected</span>
+          <h3>2026 Lolo Trail Condition Assessment</h3>
+          <p>Four days on foot along Lewis and Clark Trail #25, from Glade Creek near Lolo Pass toward the Weippe Prairie. We rated 22 segments on a five-point condition scale and turned them into a funding-ready project list for 2027.</p>
+          <div class="kpis"><span><b>22</b>segments rated</span><span><b>~115</b>GPS waypoints</span><span><b>34</b>page report</span></div>
+          <span class="go">Read the case study →</span>
         </div>
-        <nav class="main-nav">
-            <ol>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="resume.html" target="_blank" rel="noopener noreferrer" class="nav-button">Resume</a></li>
-            </ol>
+      </a>
+      <a class="case half reveal" href="work/cellavision.html">
+        <div class="thumb"><img src="img/work/wbc-neutrophil.webp" alt="A stained neutrophil among red blood cells, imaged by the CellaVision analyzer" loading="lazy" style="object-position:center"><span class="chip">Validation study · 2021</span></div>
+        <div class="body"><span class="label">ELITechGroup · co-author</span><h3>Standardizing the hematology stain workflow</h3><p>Testing whether automated white-blood-cell classification holds up across 8 stain variables and 124 slides.</p><span class="go">Read the case study →</span></div>
+      </a>
+      <a class="case half reveal" href="work/clean-water.html">
+        <div class="thumb"><img src="img/p/clear-river-bank-800.webp" srcset="img/p/clear-river-bank-800.webp 800w, img/p/clear-river-bank-1600.webp 1600w" sizes="(max-width: 900px) 50vw, 33vw" width="1600" height="902" alt="Clear water along a sandy bank under pines" loading="lazy" decoding="async"><span class="chip">Capstone · 2013</span></div>
+        <div class="body"><span class="label">University of Utah · MIAGE</span><h3>The World's Struggle for Clean Water</h3><p>How governments, NGOs and business can widen access to safe drinking water, and where low-cost methods like solar disinfection fit.</p><span class="go">Read the case study →</span></div>
+      </a>
+      <a class="case reveal" href="work/water-rights.html">
+        <div class="thumb"><img src="img/p/still-water-dawn-800.webp" srcset="img/p/still-water-dawn-800.webp 800w, img/p/still-water-dawn-1600.webp 1600w" sizes="(max-width: 900px) 50vw, 33vw" width="1600" height="902" alt="Perfectly still water reflecting a pink dawn sky" loading="lazy" decoding="async"><span class="chip">Paper</span></div>
+        <div class="body"><span class="label">University of Utah · Sociology</span><h3>Water as a Human Right</h3><p>The state's role in water access, and the tension between water as a common good and a market commodity.</p><span class="go">Read the case study →</span></div>
+      </a>
+      <a class="case reveal" href="portfolio.html#dws">
+        <div class="thumb"><img src="img/work/dws-dashboard.webp" alt="Screenshot of the County Economic Snapshot dashboard for Cache County, Utah" loading="lazy" style="object-position:top center"><span class="chip">Dashboard</span></div>
+        <div class="body"><span class="label">Utah Dept. of Workforce Services</span><h3>County economic snapshots</h3><p>Public Tableau dashboards of county jobs, wages and industry mix that I helped build and maintain as a labor economist.</p><span class="go">See it in the portfolio →</span></div>
+      </a>
+      <a class="case reveal" href="portfolio.html#software">
+        <div class="thumb"><img src="img/work/database-dev.webp" alt="Illustration of a database feeding a Flask web server" loading="lazy"><span class="chip">Software</span></div>
+        <div class="body"><span class="label">University of Advancing Technology · client work</span><h3>Software &amp; web projects</h3><p>Flask apps, database design and client websites from my software engineering master's and after.</p><span class="go">Browse projects →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        </nav>
-    </header>
+<section class="section alt topo-bg" id="toolkit">
+  <div class="wrap">
+    <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-paddle"/></svg><h2>How I work</h2></div>
+    <p class="section-intro">Three toolkits that I use together: economics to frame the question, software to handle the data, and fieldcraft to get it right on the ground.</p>
+    <div class="toolkit">
+      <div class="tool reveal">
+        <h3><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-river"/></svg>Economics &amp; statistics</h3>
+        <p>Labor-market analysis, experimental and validation design, regression and descriptive statistics, and writing for policy audiences.</p>
+        <ul class="tags"><li>Stata</li><li>R</li><li>Experimental design</li><li>BLS &amp; Census data</li><li>Policy writing</li></ul>
+      </div>
+      <div class="tool reveal">
+        <h3><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-mountain"/></svg>Data &amp; software</h3>
+        <p>Pipelines, databases and dashboards that other people can use without me in the room, plus full-stack web work.</p>
+        <ul class="tags"><li>SQL</li><li>Python</li><li>Tableau</li><li>Power BI</li><li>Flask</li><li>HTML/CSS/JS</li></ul>
+      </div>
+      <div class="tool reveal">
+        <h3><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-pine"/></svg>Field &amp; language</h3>
+        <p>Survey and GPS work in rough terrain, multi-day logistics, and interviews and fieldwork in Spanish.</p>
+        <ul class="tags"><li>onX GPS</li><li>Condition surveys</li><li>Expedition logistics</li><li>Spanish</li><li>Quechua (basic)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <main class="main-content">
-        <section id="hero">
-            <div class="hero-content">
-                <div class="grid-container">
-                <div class="text-content">
-                <p style="color: var(--baby-blue); font-size: 16px; margin-bottom: 30px;">Hi, my name is</p>
-                <h1>Andrew Reeve.</h1>
-                <h2 class="subtitle">I build things for the web.</h2>
-                <p>
-                    I'm a <strong>software engineer</strong> and <strong>data scientist</strong> specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on creating, learning, and developing new projects to showcase my tailored skillset.
-                </p>
-             </div>
-                <div class="image-container">
-                    <img src="images/andrewreeveice.jpg" alt="Andrew Reeve on Ice">
-                </div>
-                </div>
-            </div>
-                
-            <div class="mountains">
-                <div class="mountain mountain2"></div>
-                <div class="mountain mountain1"></div>
-            </div>
-        </section>
+<figure class="pano">
+  <img src="img/p/pano-missouri-glass-1200.webp" srcset="img/p/pano-missouri-glass-1200.webp 1200w, img/p/pano-missouri-glass-2400.webp 2400w" sizes="100vw" width="2400" height="857" alt="Canoe bow pointing down a glassy river under summer clouds" loading="lazy" decoding="async">
+  <figcaption>Upper Missouri River · July 2026</figcaption>
+</figure>
 
-        <section id="about" class="fade-in">
-            <h4>About Me</h4>
-            <div>
-                <p>Hello!  I’m Drew - a software developer and data scientist currently based in Northern Utah who loves bringing ideas to life in the digital world. My journey into web development and data science started back in college when I learned regression analysis techniques as an Economics student — turns out I have a knack for business development, data, and statistical analysis. I love to solve complex problems and answer difficult questions with data-derived solutions that are easily digestible! </p>                
-                <p>I've had the privilege of working on a variety of projects, from small business websites to large-scale web applications. My main focus is on crafting clean, efficient, and user-friendly products.</p>
-                <p>Here are a few technologies I've been working with recently:</p>
-                <ul style="display: grid; grid-template-columns: repeat(4, minmax(140px, 200px)); gap: 10px; list-style-position: inside; margin-top: 15px; list-style-type: '❄️ '; padding-left: 20px;">
-                    <li>Data Visualization</li>
-                    <li>HTML, CSS, & JavaScript</li>
-                    <li>Fullstack Web Development</li>
-                    <li>Generative AI & Machine Learning</li>
-                    <li>Python & Django</li>
-                    <li>Business Development</li>
-                    <li>SQL Database Managament</li>
-                    <li>Tableau & Power BI</li>
-                </ul>
-                <p>Feel free to explore my project portfolio below to see what current and past projects of mine.</p>
-            </div>
-        </section>
-        <section id="portfolio" class="fade-in">
-            <h4>My Portfolio</h4>
-            <div class="portfolio-grid">
-                <div class="project-card fade-in">
-                    <h3>Business Development: Rhythm Racer</h3>
-                    <img src="images/rhythmracer.jpg" alt="Rhythm Racer Game" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
-                    <p>Building a professional business plan for a UAT student developed game - "Rhythm Racer". This is a website (a so-called 'Teachback Journal') I developed to chronicle the journey.</p>
-                    <div class="project-links">
-                        <a href="/MS545">Live Demo</a>
-                        <a href="/MS545">Source Code</a>
-                    </div>
-                </div>
-                      <div class="project-card fade-in">
-                    <h3>Tableau Dashboard: Utah Department of Workforce Services</h3>
-                    <img src="images/dwsdashboard.jpg" alt="Rhythm Racer Game" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
-                    <p>A Tableau dashboard project I managed for the Utah Department of Workforce Services, focusing on data visualization and analysis to provide insights into workforce trends and statistics.</p>
-                    <div class="project-links">
-                        <a href="https://jobs.utah.gov/wi/insights/county/cache.html">Live Dashboard</a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <h3>Fullstack Development: Databases and Flask</h3>
-                    <img src="images/databasedev.jpg" alt="Fullstake Development using Flask" style="width: 100%; border-radius: 4px; margin-bottom: 15px;">
-                    <p>This project focused on creating a highly responsive and accessible user database using modern fullstack development strategies. The winter-themed AI generated e-book store design was a fun challenge!</p>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">Source Code</a>
-                    </div>
-                </div>
-                </div>
-        </section>
+<section class="section" id="field">
+  <div class="wrap">
+    <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-paddle"/></svg><h2>Field work &amp; guiding</h2></div>
+    <div class="field-grid">
+      <ol class="season reveal" aria-label="2026 guiding season">
+        <li><h3>Upper Missouri River</h3><span class="where mono">Fort Benton, MT</span><p>Multi-day canoe and raft trips through the White Cliffs and Missouri Breaks. Guide, cook and host.</p></li>
+        <li><h3>Main Salmon River</h3><span class="where mono">Central Idaho</span><p>Week-long wilderness trips: camp, kitchen and the history talks.</p></li>
+        <li><h3>Alberton Gorge</h3><span class="where mono">Clark Fork, MT</span><p>Whitewater day trips on the Clark Fork west of Missoula.</p></li>
+        <li><h3>Lolo Trail</h3><span class="where mono">Powell, ID</span><p>Trail trips all summer, then a four-day condition assessment of Trail #25 in September.</p></li>
+      </ol>
+      <div class="field-copy reveal">
+        <p class="label">Season 2026 · Lewis &amp; Clark Trail Adventures</p>
+        <p>I ran field operations and logistics on extended overnight trips and interpreted the history of the places we traveled through: the Nez Perce and other Native nations, the Corps of Discovery, the fur trade and the steamboat era.</p>
+        <p>A river trip is organized chaos: weather, water levels, a boat full of guests and a kitchen on a gravel bar. It rewards the same habits as good research. Plan carefully, watch what's actually happening, and adjust.</p>
+        <ul class="certs" aria-label="Certifications">
+          <li>ServSafe</li>
+          <li class="pending">Wilderness First Responder · winter 2026</li>
+          <li class="pending">AIARE Level 1 · winter 2026</li>
+          <li class="pending">Swiftwater Rescue · in progress</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mosaic">
+      <figure class="big"><img src="img/p/camp-cook-flames-800.webp" srcset="img/p/camp-cook-flames-800.webp 800w, img/p/camp-cook-flames-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 50vw" width="1600" height="2837" alt="Drew cooking over a two-burner stove at a cottonwood camp" loading="lazy" decoding="async"><figcaption>Breakfast shift · Upper Missouri</figcaption></figure>
+      <figure class="wide"><img src="img/p/salmon-raft-guests-800.webp" srcset="img/p/salmon-raft-guests-800.webp 800w, img/p/salmon-raft-guests-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 50vw" width="1600" height="902" alt="A raft of smiling guests pulled up on a gravel bar" loading="lazy" decoding="async"><figcaption>Guests on the Main Salmon · August</figcaption></figure>
+      <figure><img src="img/p/salmon-oar-selfie-800.webp" srcset="img/p/salmon-oar-selfie-800.webp 800w, img/p/salmon-oar-selfie-1600.webp 1600w" sizes="(max-width: 800px) 50vw, 25vw" width="1600" height="900" alt="Drew in a hood and sunglasses at the oars in a granite canyon" loading="lazy" decoding="async"><figcaption>At the oars</figcaption></figure>
+      <figure><img src="img/p/whitewater-raft-800.webp" srcset="img/p/whitewater-raft-800.webp 800w, img/p/whitewater-raft-1600.webp 1600w" sizes="(max-width: 800px) 50vw, 25vw" width="1600" height="1066" alt="A raft full of paddlers punching through a whitewater wave" loading="lazy" decoding="async"><figcaption>Alberton Gorge</figcaption></figure>
+      <figure class="wide"><img src="img/p/rig-rafts-dusk-800.webp" srcset="img/p/rig-rafts-dusk-800.webp 800w, img/p/rig-rafts-dusk-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 50vw" width="1600" height="900" alt="Rigging rafts onto a trailer beside the outfitter&#x27;s bus at dusk" loading="lazy" decoding="async"><figcaption>Rigging day</figcaption></figure>
+      <figure><img src="img/p/trail-camp-kitchen-800.webp" srcset="img/p/trail-camp-kitchen-800.webp 800w, img/p/trail-camp-kitchen-1600.webp 1600w" sizes="(max-width: 800px) 50vw, 25vw" width="1600" height="902" alt="A canopy kitchen set up in a burned forest camp" loading="lazy" decoding="async"><figcaption>Trail camp kitchen</figcaption></figure>
+      <figure><img src="img/p/missouri-selfie-boats-800.webp" srcset="img/p/missouri-selfie-boats-800.webp 800w, img/p/missouri-selfie-boats-1600.webp 1600w" sizes="(max-width: 800px) 50vw, 25vw" width="1600" height="900" alt="Drew laughing in a canoe with gear piled behind" loading="lazy" decoding="async"><figcaption>Loaded canoes, September</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-        <section id="portfolio" class="fade-in">
-            <h4>Get In Touch</h4>
-            <p>I'm actively seeking new employment and am open to excellent career advancement opportunities. I'm eager to bring my skills and passion for data to a forward-thinking organization where I can contribute to meaningful projects and continue to grow professionally. I'm excited about the possibilities ahead and look forward to connecting with new prospects.</p>
-            <p></p> 
-            <p>Feel free to reach out to me! My inbox is always open - whether you have a question, want to collaborate, have an awesome opportunity to explore with me or simply just want to say hi, I'll get back to you!</p>
-            <section id="contact" class="fade-in" style="text-align: center; margin-top: 5px;">
-            <h3>drew.reeve@gmail.com</h3>
-            <h3>https://www.linkedin.com/in/drew-reeve</h3>
-            <p> </p>
+<figure class="pano">
+  <img src="img/p/pano-lolo-ridge-1200.webp" srcset="img/p/pano-lolo-ridge-1200.webp 1200w, img/p/pano-lolo-ridge-2400.webp 2400w" sizes="100vw" width="2400" height="800" alt="Burned ridgeline and blue ranges stretching west along the Lolo Trail" loading="lazy" decoding="async">
+  <figcaption>Lolo Trail, Idaho · September 2026</figcaption>
+</figure>
 
-                <a href="https://www.linkedin.com/in/drew-reeve" target="_blank" rel="noopener noreferrer">
-                    <button class="contact-button linkedin">
-                        <i class="fa-brands fa-linkedin"></i>
-                        LinkedIn
-                    </button>
-                </a>
-                <a href="mailto:drew.reeve@gmail.com"  target="_blank" rel="noopener noreferrer">
-                    <button class="contact-button email">
-                        <i class="fa-solid fa-envelope"></i>
-                        Email Me
-                    </button>
-                </a>
-                <a href="https://www.instagram.com/reeve.drew" target="_blank" rel="noopener noreferrer">
-                    <button class="contact-button instagram">
-                        <i class="fa-brands fa-instagram"></i>                          
-                        <span>Instagram</span>
-                    </button>
-                </a>
-                <div class="mountains">
-                <div class="mountain mountain2"></div>
-                <div class="mountain mountain1"></div>
-            </div>
-            </section>
-           </section>
+<section class="section" id="notes">
+  <div class="wrap">
+    <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-river"/></svg><h2>Field notes</h2></div>
+    <p class="section-intro">Rivers, ridgelines and a few powder days, mostly from 2026 with some Andes winters mixed in. Tap a photo to see it bigger.</p>
+    <div class="filters" role="group" aria-label="Filter photos"><button type="button" data-filter="all" aria-pressed="true">Everything <span>39</span></button><button type="button" data-filter="rivers" aria-pressed="false">Rivers <span>21</span></button><button type="button" data-filter="mountains" aria-pressed="false">Mountains <span>14</span></button><button type="button" data-filter="snow" aria-pressed="false">Snow <span>7</span></button><button type="button" data-filter="trail" aria-pressed="false">Trail work <span>10</span></button></div><div class="notes" id="notes-grid"><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Upper Missouri"><img src="img/p/missouri-sunset-cliffs-800.webp" srcset="img/p/missouri-sunset-cliffs-800.webp 800w, img/p/missouri-sunset-cliffs-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Sunset glow behind a cliff above a calm river camp" loading="lazy" decoding="async" data-full="img/p/missouri-sunset-cliffs-1600.webp"></button><figcaption><span class="date">Sep 17, 2026</span><span class="what">Upper Missouri</span></figcaption></figure><figure class="note" data-tags="snow mountains"><button type="button" aria-label="View larger: Andes, Argentina"><img src="img/p/andes-snowboard-800.webp" srcset="img/p/andes-snowboard-800.webp 800w, img/p/andes-snowboard-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2125" alt="Drew on a snowboard with arms spread wide in the Andes" loading="lazy" decoding="async" data-full="img/p/andes-snowboard-1600.webp"></button><figcaption><span class="date">Jul 2022</span><span class="what">Andes, Argentina</span></figcaption></figure><figure class="note" data-tags="trail mountains"><button type="button" aria-label="View larger: Lolo Trail assessment"><img src="img/p/lolo-lake-overlook-800.webp" srcset="img/p/lolo-lake-overlook-800.webp 800w, img/p/lolo-lake-overlook-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="An alpine lake in a forested basin seen from a rocky ridge" loading="lazy" decoding="async" data-full="img/p/lolo-lake-overlook-1600.webp"></button><figcaption><span class="date">Sep 25, 2026</span><span class="what">Lolo Trail assessment</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Upper Missouri"><img src="img/p/bald-eagle-800.webp" srcset="img/p/bald-eagle-800.webp 800w, img/p/bald-eagle-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A bald eagle perched on driftwood against pale sandstone" loading="lazy" decoding="async" data-full="img/p/bald-eagle-1600.webp"></button><figcaption><span class="date">Sep 15, 2026</span><span class="what">Upper Missouri</span></figcaption></figure><figure class="note" data-tags="snow mountains"><button type="button" aria-label="View larger: Untracked"><img src="img/p/snowfield-valley-800.webp" srcset="img/p/snowfield-valley-800.webp 800w, img/p/snowfield-valley-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2125" alt="An untracked snowfield dropping toward a forested valley" loading="lazy" decoding="async" data-full="img/p/snowfield-valley-1600.webp"></button><figcaption><span class="date">Mar 2026</span><span class="what">Untracked</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: White Cliffs, Upper Missouri"><img src="img/p/white-cliffs-drew-800.webp" srcset="img/p/white-cliffs-drew-800.webp 800w, img/p/white-cliffs-drew-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2837" alt="Drew standing in a meadow below pink-lit sandstone cliffs" loading="lazy" decoding="async" data-full="img/p/white-cliffs-drew-1600.webp"></button><figcaption><span class="date">Jul 13, 2026</span><span class="what">White Cliffs, Upper Missouri</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Main Salmon River"><img src="img/p/salmon-gravel-bar-800.webp" srcset="img/p/salmon-gravel-bar-800.webp 800w, img/p/salmon-gravel-bar-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A wide gravel bar beneath steep forested canyon walls" loading="lazy" decoding="async" data-full="img/p/salmon-gravel-bar-1600.webp"></button><figcaption><span class="date">Aug 30, 2026</span><span class="what">Main Salmon River</span></figcaption></figure><figure class="note" data-tags="snow mountains"><button type="button" aria-label="View larger: First snow up high"><img src="img/p/first-snow-ridge-800.webp" srcset="img/p/first-snow-ridge-800.webp 800w, img/p/first-snow-ridge-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="First snow dusting red brush on a ridge with a lone fir" loading="lazy" decoding="async" data-full="img/p/first-snow-ridge-1600.webp"></button><figcaption><span class="date">Oct 13, 2026</span><span class="what">First snow up high</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Side hike, Missouri Breaks"><img src="img/p/sandstone-slot-800.webp" srcset="img/p/sandstone-slot-800.webp 800w, img/p/sandstone-slot-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2837" alt="A narrow sandstone slot with a hiker far below" loading="lazy" decoding="async" data-full="img/p/sandstone-slot-1600.webp"></button><figcaption><span class="date">Jul 7, 2026</span><span class="what">Side hike, Missouri Breaks</span></figcaption></figure><figure class="note" data-tags="mountains trail"><button type="button" aria-label="View larger: Lolo Trail country"><img src="img/p/drew-overlook-800.webp" srcset="img/p/drew-overlook-800.webp 800w, img/p/drew-overlook-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2844" alt="Drew looking out over forested ridges from tall grass" loading="lazy" decoding="async" data-full="img/p/drew-overlook-1600.webp"></button><figcaption><span class="date">Aug 1, 2026</span><span class="what">Lolo Trail country</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Reading the line"><img src="img/p/rapid-line-800.webp" srcset="img/p/rapid-line-800.webp 800w, img/p/rapid-line-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="900" alt="A raft dropping through a rapid between granite boulders" loading="lazy" decoding="async" data-full="img/p/rapid-line-1600.webp"></button><figcaption><span class="date">May 2026</span><span class="what">Reading the line</span></figcaption></figure><figure class="note" data-tags="snow mountains"><button type="button" aria-label="View larger: Andes, Argentina"><img src="img/p/andes-rime-800.webp" srcset="img/p/andes-rime-800.webp 800w, img/p/andes-rime-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="1205" alt="Rime-frosted trees beside a chairlift in the Andes" loading="lazy" decoding="async" data-full="img/p/andes-rime-1600.webp"></button><figcaption><span class="date">Jul 2022</span><span class="what">Andes, Argentina</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: White Cliffs, Upper Missouri"><img src="img/p/missouri-tent-dawn-800.webp" srcset="img/p/missouri-tent-dawn-800.webp 800w, img/p/missouri-tent-dawn-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A tent and canoes at the water&#x27;s edge below white cliffs at dawn" loading="lazy" decoding="async" data-full="img/p/missouri-tent-dawn-1600.webp"></button><figcaption><span class="date">Sep 16, 2026</span><span class="what">White Cliffs, Upper Missouri</span></figcaption></figure><figure class="note" data-tags="mountains"><button type="button" aria-label="View larger: Bitterroot Mountains"><img src="img/p/fog-valley-800.webp" srcset="img/p/fog-valley-800.webp 800w, img/p/fog-valley-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Clouds pouring through a forested valley in early fall" loading="lazy" decoding="async" data-full="img/p/fog-valley-1600.webp"></button><figcaption><span class="date">Sep 13, 2026</span><span class="what">Bitterroot Mountains</span></figcaption></figure><figure class="note" data-tags="trail"><button type="button" aria-label="View larger: Trail snack"><img src="img/p/huckleberries-800.webp" srcset="img/p/huckleberries-800.webp 800w, img/p/huckleberries-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2837" alt="Two wild berries in an open palm on a forest trail" loading="lazy" decoding="async" data-full="img/p/huckleberries-1600.webp"></button><figcaption><span class="date">Aug 1, 2026</span><span class="what">Trail snack</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Main Salmon River"><img src="img/p/salmon-canyon-drew-800.webp" srcset="img/p/salmon-canyon-drew-800.webp 800w, img/p/salmon-canyon-drew-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2837" alt="Drew on a sandy bluff above a deep river canyon" loading="lazy" decoding="async" data-full="img/p/salmon-canyon-drew-1600.webp"></button><figcaption><span class="date">Aug 18, 2026</span><span class="what">Main Salmon River</span></figcaption></figure><figure class="note" data-tags="snow"><button type="button" aria-label="View larger: Last light, ski day"><img src="img/p/snow-sunrise-800.webp" srcset="img/p/snow-sunrise-800.webp 800w, img/p/snow-sunrise-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="1205" alt="Orange clouds over snow-covered trees" loading="lazy" decoding="async" data-full="img/p/snow-sunrise-1600.webp"></button><figcaption><span class="date">Mar 2026</span><span class="what">Last light, ski day</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Upper Missouri"><img src="img/p/missouri-canoe-bow-800.webp" srcset="img/p/missouri-canoe-bow-800.webp 800w, img/p/missouri-canoe-bow-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A canoe bow heading down a wide river between badlands" loading="lazy" decoding="async" data-full="img/p/missouri-canoe-bow-1600.webp"></button><figcaption><span class="date">Sep 16, 2026</span><span class="what">Upper Missouri</span></figcaption></figure><figure class="note" data-tags="trail mountains"><button type="button" aria-label="View larger: Lolo Trail, Idaho"><img src="img/p/rock-perch-800.webp" srcset="img/p/rock-perch-800.webp 800w, img/p/rock-perch-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A hiker sitting on a granite outcrop between two firs" loading="lazy" decoding="async" data-full="img/p/rock-perch-1600.webp"></button><figcaption><span class="date">Aug 11, 2026</span><span class="what">Lolo Trail, Idaho</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: White Cliffs, Upper Missouri"><img src="img/p/white-cliffs-pink-800.webp" srcset="img/p/white-cliffs-pink-800.webp 800w, img/p/white-cliffs-pink-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Pink evening light over the White Cliffs above a grassy camp" loading="lazy" decoding="async" data-full="img/p/white-cliffs-pink-1600.webp"></button><figcaption><span class="date">Jul 6, 2026</span><span class="what">White Cliffs, Upper Missouri</span></figcaption></figure><figure class="note" data-tags="mountains"><button type="button" aria-label="View larger: Patagonia, Argentina"><img src="img/p/patagonia-sunset-800.webp" srcset="img/p/patagonia-sunset-800.webp 604w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="604" height="453" alt="Orange-lit granite peaks above a lake in Patagonia" loading="lazy" decoding="async" data-full="img/p/patagonia-sunset-800.webp"></button><figcaption><span class="date">Dec 2023</span><span class="what">Patagonia, Argentina</span></figcaption></figure><figure class="note" data-tags="trail"><button type="button" aria-label="View larger: Lolo Trail, Idaho"><img src="img/p/lolo-tread-800.webp" srcset="img/p/lolo-tread-800.webp 800w, img/p/lolo-tread-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A faint trail tread through dense green understory" loading="lazy" decoding="async" data-full="img/p/lolo-tread-1600.webp"></button><figcaption><span class="date">Sep 13, 2026</span><span class="what">Lolo Trail, Idaho</span></figcaption></figure><figure class="note" data-tags="snow"><button type="button" aria-label="View larger: Chair ride, spring snow"><img src="img/p/snowboard-lift-800.webp" srcset="img/p/snowboard-lift-800.webp 800w, img/p/snowboard-lift-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2125" alt="A snowboard dangling over fresh snow from a chairlift" loading="lazy" decoding="async" data-full="img/p/snowboard-lift-1600.webp"></button><figcaption><span class="date">Mar 2026</span><span class="what">Chair ride, spring snow</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Clear water"><img src="img/p/clear-river-bank-800.webp" srcset="img/p/clear-river-bank-800.webp 800w, img/p/clear-river-bank-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Clear water along a sandy bank under pines" loading="lazy" decoding="async" data-full="img/p/clear-river-bank-1600.webp"></button><figcaption><span class="date">Sep 20, 2026</span><span class="what">Clear water</span></figcaption></figure><figure class="note" data-tags="mountains trail"><button type="button" aria-label="View larger: Lolo Trail country"><img src="img/p/paintbrush-ridge-800.webp" srcset="img/p/paintbrush-ridge-800.webp 800w, img/p/paintbrush-ridge-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Red paintbrush on a hillside above hazy blue ranges" loading="lazy" decoding="async" data-full="img/p/paintbrush-ridge-1600.webp"></button><figcaption><span class="date">Jul 30, 2026</span><span class="what">Lolo Trail country</span></figcaption></figure><figure class="note" data-tags="trail"><button type="button" aria-label="View larger: Forest floor"><img src="img/p/amanita-800.webp" srcset="img/p/amanita-800.webp 800w, img/p/amanita-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A bright orange mushroom on a sawn stump in the forest" loading="lazy" decoding="async" data-full="img/p/amanita-1600.webp"></button><figcaption><span class="date">Sep 27, 2026</span><span class="what">Forest floor</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Columbia River mouth"><img src="img/p/astoria-fog-800.webp" srcset="img/p/astoria-fog-800.webp 800w, img/p/astoria-fog-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A man on a pier looking toward a truss bridge disappearing into fog" loading="lazy" decoding="async" data-full="img/p/astoria-fog-1600.webp"></button><figcaption><span class="date">Oct 4, 2026</span><span class="what">Columbia River mouth</span></figcaption></figure><figure class="note" data-tags="snow mountains"><button type="button" aria-label="View larger: Late-season snow"><img src="img/p/frosted-road-800.webp" srcset="img/p/frosted-road-800.webp 800w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="800" height="1422" alt="Frosted trees above a winding mountain road in fog" loading="lazy" decoding="async" data-full="img/p/frosted-road-800.webp"></button><figcaption><span class="date">May 2026</span><span class="what">Late-season snow</span></figcaption></figure><figure class="note" data-tags="rivers mountains"><button type="button" aria-label="View larger: Snowmelt creek"><img src="img/p/snowmelt-creek-800.webp" srcset="img/p/snowmelt-creek-800.webp 800w, img/p/snowmelt-creek-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2844" alt="A snowmelt creek rushing between tall conifers" loading="lazy" decoding="async" data-full="img/p/snowmelt-creek-1600.webp"></button><figcaption><span class="date">Jun 18, 2026</span><span class="what">Snowmelt creek</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Missouri River, Montana"><img src="img/p/missouri-oxbow-1200.webp" srcset="img/p/missouri-oxbow-1200.webp 1200w, img/p/missouri-oxbow-2400.webp 2400w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="2400" height="1263" alt="A river bending through farmland below a coulee" loading="lazy" decoding="async" data-full="img/p/missouri-oxbow-2400.webp"></button><figcaption><span class="date">Sep 14, 2026</span><span class="what">Missouri River, Montana</span></figcaption></figure><figure class="note" data-tags="trail mountains"><button type="button" aria-label="View larger: Lolo Trail, Idaho"><img src="img/p/ridge-trail-snags-800.webp" srcset="img/p/ridge-trail-snags-800.webp 800w, img/p/ridge-trail-snags-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A ridge trail through grass and snags with ranges behind" loading="lazy" decoding="async" data-full="img/p/ridge-trail-snags-1600.webp"></button><figcaption><span class="date">Aug 10, 2026</span><span class="what">Lolo Trail, Idaho</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Upper Missouri"><img src="img/p/missouri-canoe-paddler-800.webp" srcset="img/p/missouri-canoe-paddler-800.webp 800w, img/p/missouri-canoe-paddler-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2844" alt="A paddler in a loaded canoe under big summer clouds" loading="lazy" decoding="async" data-full="img/p/missouri-canoe-paddler-1600.webp"></button><figcaption><span class="date">Jun 3, 2026</span><span class="what">Upper Missouri</span></figcaption></figure><figure class="note" data-tags="trail"><button type="button" aria-label="View larger: Road 500"><img src="img/p/lolo-van-fog-800.webp" srcset="img/p/lolo-van-fog-800.webp 800w, img/p/lolo-van-fog-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A white van on a muddy forest road in fog" loading="lazy" decoding="async" data-full="img/p/lolo-van-fog-1600.webp"></button><figcaption><span class="date">Sep 13, 2026</span><span class="what">Road 500</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Main Salmon River"><img src="img/p/salmon-sunset-ridge-1200.webp" srcset="img/p/salmon-sunset-ridge-1200.webp 1200w, img/p/salmon-sunset-ridge-2400.webp 2400w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="2400" height="1200" alt="Sunset light on a canyon ridge above beached rafts" loading="lazy" decoding="async" data-full="img/p/salmon-sunset-ridge-2400.webp"></button><figcaption><span class="date">Aug 20, 2026</span><span class="what">Main Salmon River</span></figcaption></figure><figure class="note" data-tags="rivers mountains"><button type="button" aria-label="View larger: Big water"><img src="img/p/blue-lake-mountains-800.webp" srcset="img/p/blue-lake-mountains-800.webp 800w, img/p/blue-lake-mountains-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Deep blue water below forested mountains" loading="lazy" decoding="async" data-full="img/p/blue-lake-mountains-1600.webp"></button><figcaption><span class="date">Oct 6, 2026</span><span class="what">Big water</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Spring runoff"><img src="img/p/whitewater-pines-800.webp" srcset="img/p/whitewater-pines-800.webp 800w, img/p/whitewater-pines-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="900" alt="A whitewater rapid below a steep pine-covered slope" loading="lazy" decoding="async" data-full="img/p/whitewater-pines-1600.webp"></button><figcaption><span class="date">May 15, 2026</span><span class="what">Spring runoff</span></figcaption></figure><figure class="note" data-tags="trail rivers"><button type="button" aria-label="View larger: Lolo Trail assessment"><img src="img/p/lolo-creek-800.webp" srcset="img/p/lolo-creek-800.webp 800w, img/p/lolo-creek-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="A clear creek running through fall-colored forest" loading="lazy" decoding="async" data-full="img/p/lolo-creek-1600.webp"></button><figcaption><span class="date">Sep 24, 2026</span><span class="what">Lolo Trail assessment</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Put-in day"><img src="img/p/drysuit-putin-800.webp" srcset="img/p/drysuit-putin-800.webp 800w, img/p/drysuit-putin-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="2844" alt="Drew in a drysuit leaning on a truck at the put-in" loading="lazy" decoding="async" data-full="img/p/drysuit-putin-1600.webp"></button><figcaption><span class="date">Jun 11, 2026</span><span class="what">Put-in day</span></figcaption></figure><figure class="note" data-tags="rivers"><button type="button" aria-label="View larger: Still water at dawn"><img src="img/p/still-water-dawn-800.webp" srcset="img/p/still-water-dawn-800.webp 800w, img/p/still-water-dawn-1600.webp 1600w" sizes="(max-width: 600px) 92vw, (max-width: 1100px) 45vw, 300px" width="1600" height="902" alt="Perfectly still water reflecting a pink dawn sky" loading="lazy" decoding="async" data-full="img/p/still-water-dawn-1600.webp"></button><figcaption><span class="date">Oct 8, 2026</span><span class="what">Still water at dawn</span></figcaption></figure></div><dialog class="lightbox" id="lightbox" aria-label="Photo viewer"><div class="stage"><img id="lightbox-img" src="" alt=""><p id="lightbox-cap"></p></div><button class="lb-btn close" type="button" id="lightbox-close" aria-label="Close">×</button><button class="lb-btn prev" type="button" id="lightbox-prev" aria-label="Previous photo">←</button><button class="lb-btn next" type="button" id="lightbox-next" aria-label="Next photo">→</button></dialog>
+  </div>
+</section>
 
-    </main>
+<section class="section band topo-bg" id="contact">
+  <div class="wrap contact">
+    <div class="intro">
+      <div class="sign"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-sun"/></svg><h2>Let's talk</h2></div>
+      <p>I'm open to research collaborations, research-assistant and data roles, conversations about graduate study, and the occasional river trip. Write to me in English or Spanish.</p>
+      <div class="contact-links">
+        <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:drew.reeve@gmail.com" style="border:0;padding:0;display:inline">drew.reeve@gmail.com</a><button class="copy" type="button" data-copy="drew.reeve@gmail.com">Copy</button></span></div>
+        <a href="https://www.linkedin.com/in/drew-reeve" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/drew-reeve ↗</span></a>
+        <a href="https://github.com/drew-reeve" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">drew-reeve ↗</span></a>
+        <a href="cv.html"><span class="k">CV</span><span class="v">View online · PDF ↓</span></a>
+        <div class="row"><span class="k">Based in</span><span class="v">Lolo, Montana · Mountain Time</span></div>
+      </div>
+    </div>
+    <form class="form" id="contact-form" action="https://formsubmit.co/ajax/drew.reeve@gmail.com" method="POST">
+      <h3>Send a note</h3>
+      <div class="two">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="two">
+        <label>Organization<input name="org" autocomplete="organization" placeholder="Optional"></label>
+        <label>About<select name="topic">
+          <option>Research collaboration</option><option>Graduate study</option><option>Data or economics work</option><option>Guiding or field work</option><option>Just saying hi</option>
+        </select></label>
+      </div>
+      <label>Message<textarea name="message" required></textarea></label>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="btn-row" style="align-items:center"><button class="btn ember" type="submit">Send message <span class="arrow">→</span></button><span class="fine">Goes straight to my inbox.</span></div>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
 
-    <footer>
-        <p>Designed & Built by Andrew Reeve - All Rights Reserved  &copy; 2025</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-    <script>
-        /* --- Particles.js Snow Effect Configuration --- */
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 160, /* Number of snowflakes */
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#A8D0E6" /* Soft baby blue color */
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0
-                    },
-                },
-                "opacity": {
-                    "value": 0.7, /* Snowflake opacity */
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 0.5,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3, /* Snowflake size */
-                    "random": true,
-                    "anim": {
-                        "enable": false
-                    }
-                },
-                "line_linked": {
-                    "enable": false
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1, /* Snowflake fall speed */
-                    "direction": "bottom",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": false
-                    },
-                    "onclick": {
-                        "enable": false
-                    },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
-        });
-
-        /* --- Fade-in on Scroll Animation --- */
-        const faders = document.querySelectorAll('.fade-in');
-
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-
-    </script>
-
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-mountain"/></svg>Built by hand in Lolo, Montana · © <span id="year">2026</span> Andrew "Drew" Reeve</span>
+    <nav aria-label="Footer"><a href="portfolio.html">Work</a><a href="cv.html">CV</a><a href="mailto:drew.reeve@gmail.com">Email</a><a href="https://www.linkedin.com/in/drew-reeve" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/drew-reeve" target="_blank" rel="noopener">GitHub</a></nav>
+  </div>
+</footer>
+<script src="js/main.js" defer></script>
 </body>
 </html>

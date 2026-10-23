@@ -1,0 +1,68 @@
+<!--meta {"title": "Standardizing the Hematology Stain Workflow · Drew Reeve", "desc": "Case study: a co-authored ELITechGroup validation study testing automated white-blood-cell classification across eight stain variables and 124 slides.", "nav": "work"} -->
+<header class="cs-hero" style="background:#2a1f33">
+  <img src="../img/work/wbc-neutrophil.webp" alt="" style="object-position:center 40%;opacity:.55">
+  <div class="wrap">
+    <p class="label"><a href="../portfolio.html">Work</a> / Validation study · 2021</p>
+    <h1>Standardizing the Hematology Stain Workflow with Aerospray® and CellaVision®</h1>
+    <p class="sub">Does an automated cell classifier still get it right when you change how the slide was stained? We tested eight variables to find out.</p>
+  </div>
+</header>
+
+<section class="cs-meta" aria-label="Project facts">
+  <div class="wrap">
+    <dl>
+      <div><dt>When</dt><dd>Published March 2021</dd></div>
+      <div><dt>Where</dt><dd>ELITechGroup, Logan, Utah</dd></div>
+      <div><dt>Authors</dt><dd>Abraham Verdoes, Ryan Cowley, Andrew Reeve</dd></div>
+      <div><dt>My role</dt><dd>Co-author and research analyst: data analysis and results</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="wrap cs-body">
+  <nav class="cs-toc" aria-label="On this page">
+    <a href="#question">The question</a>
+    <a href="#design">Study design</a>
+    <a href="#results">Results</a>
+    <a href="#role">What I did</a>
+    <a class="btn ember" href="../docs/reeve-aerospray-cellavision-white-paper.pdf" target="_blank" rel="noopener">White paper (PDF) ↗</a>
+  </nav>
+
+  <article class="prose">
+    <h2 id="question"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-drop"/></svg>The question</h2>
+    <p>Clinical labs depend on consistency. A blood smear is stained, then a digital analyzer like the CellaVision DM1200 photographs it and classifies the white blood cells. If the stain varies, the classifier can drift, and a lab technician has to correct more of its calls by hand.</p>
+    <p>The Aerospray Hematology Pro lets labs adjust stain settings. Our objective was to verify that <strong>white blood cells on Aerospray-stained slides are classified correctly by the CellaVision across a range of staining settings and options</strong>, using a clear bar: at least 95% agreement with an experienced laboratory technician.</p>
+    <div class="trio">
+      <img src="../img/work/wbc-lymphocyte.webp" alt="A stained lymphocyte" loading="lazy">
+      <img src="../img/work/wbc-neutrophil.webp" alt="A stained segmented neutrophil" loading="lazy">
+      <img src="../img/work/wbc-cell-3.webp" alt="Another stained white blood cell" loading="lazy">
+    </div>
+    <p class="mono" style="color:var(--rock)">Example white-blood-cell images from the study.</p>
+
+    <h2 id="design"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-river"/></svg>Study design</h2>
+    <p>We prepared <strong>124 blood smears</strong> by hand using the standard wedge method from <em>Wintrobe's Clinical Hematology</em>, loaded them in 12- and 30-slide carousels, and stained them in batches under two programs (Rapid and Wright-Giemsa) and two buffers (pH 6.8 and 7.2). Holding everything else at the default, we varied one setting at a time:</p>
+    <ol class="variables">
+      <li>Fixation</li><li>Intensity</li><li>Red/blue ratio</li><li>Spin</li>
+      <li>End rinse</li><li>Carousel size</li><li>Partial vs. full carousel</li><li>Fixative type</li>
+    </ol>
+    <p>Each condition was then run through the CellaVision and scored against the technician's classification. A condition passed if agreement was 95% or higher.</p>
+
+    <h2 id="results"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-sun"/></svg>Results</h2>
+    <p>The default programs met the 95% bar across carousel sizes, partial and full loads, and both fixatives, under both buffers. Most low, default and high settings passed too; a handful of extreme settings fell short, which gave labs a clear, documented operating range rather than a single "safe" recipe.</p>
+    <div class="callout">
+      <b>Why it mattered</b>
+      <p>The paper gave customers evidence that they could tune their stains to local preference without giving up automated classification accuracy. That's a sales claim turned into a testable hypothesis, with a pass/fail criterion set before the data came in.</p>
+    </div>
+
+    <h2 id="role"><svg class="mark" viewBox="0 0 44 36" aria-hidden="true"><use href="#m-pine"/></svg>What I did</h2>
+    <p>As the research analyst on the team, I organized and analyzed the classification data, built the results tables that show each setting against the 95% criterion, and co-wrote the paper. It's a small study, but it's a good example of how I like to work: define the question and the bar for success first, then let the data decide.</p>
+    <div class="btn-row" style="margin-top:.6rem"><a class="btn ember" href="../docs/reeve-aerospray-cellavision-white-paper.pdf" target="_blank" rel="noopener">Read the white paper <span class="arrow">↗</span></a></div>
+  </article>
+</div>
+
+<nav class="cs-next" aria-label="More case studies">
+  <div class="wrap">
+    <a href="lolo-trail.html"><span class="label">← Previous</span><b>2026 Lolo Trail Condition Assessment</b></a>
+    <a href="clean-water.html"><span class="label">Next →</span><b>The World's Struggle for Clean Water</b></a>
+  </div>
+</nav>
